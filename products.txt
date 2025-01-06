@@ -1,0 +1,2 @@
+Potato, 66, Veg
+Tomato, 15, Fruit
