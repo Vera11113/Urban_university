@@ -13,7 +13,8 @@ def custom_write(file_name, strings):
         bayt_num = file.tell()
         key = (str_num, bayt_num)
         string_positions[key] = file.readline().replace('\n', '')
-
+    
+    file.close()
     return string_positions
 
 info = [
