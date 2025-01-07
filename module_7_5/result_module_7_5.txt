@@ -1,0 +1,3 @@
+Обнаружен файл file1.txt, Путь: C:\Users\Вера\Urban_university\Urban_univ_study\module 7\file1.txt, Размер: 171 байт, Время изменения: 06.01.2025 23:49, Родительская директория: C:\Users\Вера\Urban_university\Urban_univ_study\module 7
+Обнаружен файл module_6_test.py, Путь: C:\Users\Вера\Urban_university\Urban_univ_study\module 7\module_6_test.py, Размер: 1088 байт, Время изменения: 06.01.2025 22:06, Родительская директория: C:\Users\Вера\Urban_university\Urban_univ_study\module 7
+Обнаружен файл module_7)5.py, Путь: C:\Users\Вера\Urban_university\Urban_univ_study\module 7\module_7)5.py, Размер: 1420 байт, Время изменения: 07.01.2025 13:09, Родительская директория: C:\Users\Вера\Urban_university\Urban_univ_study\module 7
