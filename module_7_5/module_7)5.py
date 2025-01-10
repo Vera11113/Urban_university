@@ -30,7 +30,7 @@ with (open('result_module_7_5.txt', 'w', encoding='utf-8') as result_file):
 
     for root, dirs, files in os.walk(directory):
         for file in files[:3]: #Рассмотрим только первые 3 файла
-            filepath = os.path.join(directory +'\\'+ file)
+            filepath = os.path.join(root,file)
             filetime = os.path.getmtime(filepath)
             formated_time = time.strftime("%d.%m.%Y %H:%M", time.localtime(filetime))
             filesize = os.path.getsize(filepath)
