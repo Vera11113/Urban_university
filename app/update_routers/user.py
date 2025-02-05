@@ -2,9 +2,7 @@ from fastapi import APIRouter, Depends, status, HTTPException
 from sqlalchemy.orm import Session
 from backend.db_depends import get_db
 from typing import Annotated
-from models.user import User
-from models.task import Task
-from routers.task import update_task
+from models.task import Task, User
 from schemas import CreateUser, UpdateUser
 from sqlalchemy import insert, select, update, delete
 from slugify import slugify
@@ -25,6 +23,11 @@ async def user_by_id(user_id:int, db: Annotated[Session, Depends(get_db)]):
             detail='User was not found'
         )
     else: return user
+
+@router.get('/user_id/tasks')
+async def tasks_by_user(db: Annotated[Session, Depends(get_db)], user_id: int):
+    tasks = db.scalars(select(Task).where(Task.user_id == user_id)).all()
+    return tasks
 
 @router.post('/create')
 async def create_user(create_user: CreateUser, db: Annotated[Session, Depends(get_db)]):
@@ -66,9 +69,21 @@ async def delete_user(db: Annotated[Session, Depends(get_db)], user_id:int):
             status_code=status.HTTP_404_NOT_FOUND,
             detail='User was not found'
         )
+    db.execute(delete(Task).where(Task.user_id == user_id))
     db.execute(delete(User).where(User.id == user_id))
     db.commit()
     return {
         'status_code': status.HTTP_201_CREATED,
+        'transaction': 'Delete was successful'
+    }
+
+
+@router.delete('/delete_all')
+async def delete_all_users(db: Annotated[Session, Depends(get_db)]):
+    db.execute(delete(User))
+    db.commit()
+
+    return {
+        'status_code': status.HTTP_200_OK,
         'transaction': 'Delete was successful'
     }
