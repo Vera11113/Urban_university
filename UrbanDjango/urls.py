@@ -18,12 +18,12 @@ from django.contrib import admin
 from django.urls import path
 
 #from task2.views import func_url, Class_url
-from task3.views import Page
+from task4.views import shop, main_func, cart
 from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', Page.as_view()),
-    path('shop/', Page.as_view(template_name = 'shop_page.html')),
-    path('cart/', Page.as_view(template_name = 'cart_page.html'))
+    path('', main_func),
+    path('shop/', shop),
+    path('cart/', cart)
 ]

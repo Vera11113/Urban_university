@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <style>
+        ul {
+            list-style-type: none; /* Убираем маркеры списка */
+            padding: 0; /* Убираем отступы */
+        }
+        li {
+            display: flex; /* Используем Flexbox для расположения элементов в строку */
+            align-items: center; /* Центрируем элементы по вертикали */
+            margin-bottom: 20px; /* Отступ между элементами списка */
+        }
+        h3 {
+            margin: 0; /* Убираем отступы по умолчанию от заголовка */
+            margin-right: 10px; /* Добавляем отступ между заголовком и кнопкой */
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href='{% static "style.css" %}'>
+</head>
+<body>
+{% block pagename%}
+    <h1>Главная страница</h1>
+{% endblock pagename%}
+
+{% block menu%}
+    <h3><a href="/">Главная</a></h3>
+    <h3><a href="/shop/">Магазин</a></h3>
+    <h3><a href="/cart/">Корзина</a></h3>
+{% endblock %}
+
+{% block content%}
+    <br>
+
+{% endblock %}
+</body>
+</html>
